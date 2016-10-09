@@ -1,0 +1,6 @@
+- alert_classes = { notice: "success", alert: "danger" }
+- flash.each do |type, message|
+  %div{ class: "alert alert-#{ alert_classes[type.to_sym] || "info"} alert-dismissible", "role": "alert" } 
+    %button{ "type": "button", class: "close", "data-dismiss": "alert", "aria-lable": "Close" }
+      %span{ "aria-hidden": "true" } &times;
+    = message
