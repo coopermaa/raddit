@@ -1,23 +1,9 @@
-%h1 Listing links
+- @links.each do |link|
+  .link.row
+    %h2
+      =link_to link.title, link
+      %br
+      %small= "Submitted #{ time_ago_in_words(link.created_at) }"
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Url
-      %th
-      %th
-      %th
-
-  %tbody
-    - @links.each do |link|
-      %tr
-        %td= link.title
-        %td= link.url
-        %td= link_to 'Show', link
-        %td= link_to 'Edit', edit_link_path(link)
-        %td= link_to 'Destroy', link, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Link', new_link_path
+    .btn-group
+      %a.btn.btn-primary.btn-sm{ "href": link.url } Visit Link
