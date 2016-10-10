@@ -1,13 +1,26 @@
-%h1
-  = link_to @link.title, @link.url
-  %br
-    %small= "Submitted #{ time_ago_in_words(@link.created_at) } by #{@link.owner.name}"
+.row
+  .col-md-8
+    %h1
+      = link_to @link.title, @link.url
+      %br
+        %small= "Submitted #{ time_ago_in_words(@link.created_at) } by #{@link.owner.name}"
 
-.btn-group
-  %a.btn.btn-primary{ "href": @link.url } Visit Link
+    .btn-group
+      %a.btn.btn-primary{ "href": @link.url } Visit Link
 
-.btn-group
-  - if @link.owner == current_user
-    = link_to "Edit", edit_link_path(@link), class: "btn btn-default"
-    = link_to "Delete", @link, class: "btn btn-default",
-      :method => :delete, :data => { :confirm => 'Are you sure?' }
+    .btn-group
+      - if @link.owner == current_user
+        = link_to "Edit", edit_link_path(@link), class: "btn btn-default"
+        = link_to "Delete", @link, class: "btn btn-default",
+          :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+    .btn-group.pull-right
+      = link_to upvote_link_path(@link), method: :put, class: "btn btn-default btn-sm" do
+        %span.glyphicon.glyphicon-chevron-up
+        Upvote
+        = @link.get_upvotes.size
+
+      = link_to downvote_link_path(@link), method: :put, class: "btn btn-default btn-sm" do
+        %span.glyphicon.glyphicon-chevron-down
+        Downvote
+        = @link.get_downvotes.size
