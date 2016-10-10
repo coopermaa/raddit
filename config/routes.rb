@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   resources :links do
+    resources :comments, only: [:create, :destroy]
     member do
       put "upvote"
       put "downvote"

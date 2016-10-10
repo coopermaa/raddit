@@ -24,3 +24,18 @@
         %span.glyphicon.glyphicon-chevron-down
         Downvote
         = @link.get_downvotes.size
+
+.row
+  .col-md-8
+    %h3.comments_title
+      = "#{@link.comments.count} Comments"
+
+= render @link.comments
+
+.row
+  .col-md-8
+    = simple_form_for [@link, Comment.new]  do |f|
+      .form-group
+        = f.text_area :body, class: "form-control"
+      .form-group
+        = f.submit "Add Comment", class: "btn btn-primary"

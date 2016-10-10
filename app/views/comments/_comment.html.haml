@@ -1,0 +1,13 @@
+.row
+  .col-md-8
+    .comment
+      .pull-left
+        %p.lead= comment.body
+        :erb
+          <p><small>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong>
+              by <%= comment.owner.name %><small></p>
+
+      .btn-group.pull-right
+        - if comment.owner == current_user
+          = link_to 'Delete', link_comment_path(comment.link, comment), 
+            method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default"
