@@ -1,6 +1,6 @@
 # Raddit
 
-我的 Reddot clone，照著 [Week 1: How To Build A Reddit Clone With Rails 4](https://mackenziechild.me/12-in-12/1/) 這個教學影片一步步完成的。
+我的 Reddit clone，照著 [Week 1: How To Build A Reddit Clone With Rails 4](https://mackenziechild.me/12-in-12/1/) 這個教學影片一步步完成的。
 
 [View the demo application here](https://week1-raddit.herokuapp.com/)
 
