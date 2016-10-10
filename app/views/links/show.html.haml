@@ -1,12 +1,13 @@
 %h1
   = link_to @link.title, @link.url
   %br
-    %small= "Submitted #{ time_ago_in_words(@link.created_at) }"
+    %small= "Submitted #{ time_ago_in_words(@link.created_at) } by #{@link.owner.email}"
 
 .btn-group
   %a.btn.btn-primary{ "href": @link.url } Visit Link
 
 .btn-group
-  = link_to "Edit", edit_link_path(@link), class: "btn btn-default"
-  = link_to "Delete", @link, class: "btn btn-default",
-    :method => :delete, :data => { :confirm => 'Are you sure?' }
+  - if @link.owner == current_user
+    = link_to "Edit", edit_link_path(@link), class: "btn btn-default"
+    = link_to "Delete", @link, class: "btn btn-default",
+      :method => :delete, :data => { :confirm => 'Are you sure?' }
