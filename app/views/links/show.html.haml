@@ -1,7 +1,7 @@
 %h1
   = link_to @link.title, @link.url
   %br
-    %small= "Submitted #{ time_ago_in_words(@link.created_at) } by #{@link.owner.email}"
+    %small= "Submitted #{ time_ago_in_words(@link.created_at) } by #{@link.owner.name}"
 
 .btn-group
   %a.btn.btn-primary{ "href": @link.url } Visit Link
