@@ -1,24 +1,30 @@
-# README
+# Raddit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+我的 Reddot clone，照著 [Week 1: How To Build A Reddit Clone With Rails 4](https://mackenziechild.me/12-in-12/1/) 這個教學影片一步步完成的。
 
-Things you may want to cover:
+[View the demo application here](https://week1-raddit.herokuapp.com/)
 
-* Ruby version
+## User Story
 
-* System dependencies
+  * 使用者可以提交一個連結，連結要有標題跟 URL
+  * 使用者可以登入與登出，登入後才可以提交連結
+  * 使用者可以對連結加分與扣分
+  * 使用者可以對連結留言
 
-* Configuration
+## Installation
 
-* Database creation
+* always use this command for bundle during development in local machine:
 
-* Database initialization
+    `bundle install --without production`
 
-* How to run the test suite
+* always use this command for bundle for production environmnet:
 
-* Services (job queues, cache servers, search engines, etc.)
+    `bundle install --without development test`
 
-* Deployment instructions
+* Database creation and initialization:
 
-* ...
+    `bundle exec rake db:setup db:seed`
+
+* Start the App:
+
+    `rails server`
